@@ -2,7 +2,7 @@
 import CarList from "@/components/CarList/CarList";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { getCars } from "@/lib/api";
-
+import styles from "./Catalog.module.css";
 export default function Catalog() {
   const {
     data,
@@ -34,12 +34,12 @@ export default function Catalog() {
 
   return (
     <main>
-      <h1>Car catalog</h1>
       <CarList cars={cars} />
 
       {hasNextPage && (
         <button
           type="button"
+          className={styles.loadMore}
           onClick={() => fetchNextPage()}
           disabled={isFetchingNextPage}
         >

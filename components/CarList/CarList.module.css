@@ -1,9 +1,14 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 32px 24px;
+  column-gap: 32px;
+  row-gap: 48px;
+
+  width: 1200px;
+  margin: 0 auto;
 }
 
 .item {
   min-width: 0;
+  display: flex;
 }

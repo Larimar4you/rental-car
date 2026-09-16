@@ -1,4 +1,5 @@
 import type { Car } from "@/types/car";
+import CarCard from "@/components/CarCard/CarCard";
 import styles from "./CarList.module.css";
 
 interface CarListProps {
@@ -10,7 +11,7 @@ export default function CarList({ cars }: CarListProps) {
     <ul className={styles.grid}>
       {cars.map((car) => (
         <li key={car.id} className={styles.item}>
-          {car.brand} {car.model}, {car.year}
+          <CarCard car={car} />
         </li>
       ))}
     </ul>
