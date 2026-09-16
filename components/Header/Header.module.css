@@ -26,6 +26,12 @@
   transition: color 250ms ease;
 }
 
+.active {
+  color: var(--light-blue);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .navLink:hover {
   color: var(--light-blue);
 }
