@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Manrope, Inter } from "next/font/google";
-import "./globals.css";
 import Header from "@/components/Header/Header";
+import Providers from "./providers";
+import "./globals.css";
+
 const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope",
@@ -21,8 +23,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en">
       <body className={`${manrope.variable} ${inter.variable}`}>
-        <Header />
-        {children}
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
       </body>
     </html>
   );

@@ -16,3 +16,16 @@
   align-items: center;
   gap: 32px;
 }
+
+.navLink {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--main);
+
+  transition: color 250ms ease;
+}
+
+.navLink:hover {
+  color: var(--light-blue);
+}

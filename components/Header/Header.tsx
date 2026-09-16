@@ -12,10 +12,15 @@ export default function Header() {
       <nav>
         <ul className={styles.navList}>
           <li>
-            <Link href="/">Home</Link>
+            <Link href="/" className={styles.navLink}>
+              Home
+            </Link>
           </li>
+
           <li>
-            <Link href="/catalog">Catalog</Link>
+            <Link href="/catalog" className={styles.navLink}>
+              Catalog
+            </Link>
           </li>
         </ul>
       </nav>
