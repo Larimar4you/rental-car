@@ -29,3 +29,7 @@
 .filtersWrapper {
   margin-bottom: 60px;
 }
+
+.filtersWrapper:has(+ .notFoundWrapper) {
+  margin-bottom: 12px;
+}

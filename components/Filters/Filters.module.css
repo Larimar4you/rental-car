@@ -41,7 +41,10 @@
   background-color: var(--white);
   color: var(--main);
 
-  font: inherit;
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 125%;
   cursor: pointer;
 }
 
@@ -69,7 +72,10 @@
   background-color: var(--white);
   color: var(--main);
 
-  font: inherit;
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 125%;
   outline-offset: 2px;
 }
 
@@ -115,7 +121,10 @@
   background-color: var(--light-blue);
   color: var(--white);
 
-  font: inherit;
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 125%;
   cursor: pointer;
 }
 
@@ -203,4 +212,8 @@
 .brandOption:focus-visible {
   outline: 2px solid var(--light-blue);
   outline-offset: -2px;
+}
+
+.priceDropdown {
+  width: 196px;
 }

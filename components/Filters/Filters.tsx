@@ -137,7 +137,8 @@ export default function Filters({ onSearch }: FiltersProps) {
             setIsBrandOpen(false);
           }}
         >
-          {selectedPrice !== null ? selectedPrice : "Choose a price"}
+          {selectedPrice !== null ? `To $${selectedPrice}` : "Choose a price"}
+
           <FiChevronDown size={16} />
         </button>
 
