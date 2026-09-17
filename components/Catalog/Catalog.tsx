@@ -50,9 +50,7 @@ export default function Catalog() {
           <Filters key={resetKey} onSearch={setFilters} />
         </div>
 
-        {isPending ? (
-          <Loader />
-        ) : isError ? (
+        {isPending ? null : isError ? (
           <p>Failed to load cars.</p>
         ) : cars.length === 0 ? (
           <div className={styles.notFoundWrapper}>
@@ -75,7 +73,7 @@ export default function Catalog() {
           </>
         )}
       </div>
-      {!isPending && isFetching && <Loader />}
+      {isFetching && <Loader />}
     </main>
   );
 }
