@@ -1,5 +1,6 @@
 "use client";
 import CarList from "@/components/CarList/CarList";
+import Filters from "@/components/Filters/Filters";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { getCars } from "@/lib/api";
 import styles from "./Catalog.module.css";
@@ -34,20 +35,22 @@ export default function Catalog() {
 
   return (
     <main className={styles.page}>
-      <div className={styles.container}>
-        <CarList cars={cars} />
-
-        {hasNextPage && (
-          <button
-            type="button"
-            className={styles.loadMore}
-            onClick={() => fetchNextPage()}
-            disabled={isFetchingNextPage}
-          >
-            {isFetchingNextPage ? "Loading..." : "Load More"}
-          </button>
-        )}
+      <div className={styles.filtersWrapper}>
+        <Filters />
       </div>
+
+      <CarList cars={cars} />
+
+      {hasNextPage && (
+        <button
+          type="button"
+          className={styles.loadMore}
+          onClick={() => fetchNextPage()}
+          disabled={isFetchingNextPage}
+        >
+          {isFetchingNextPage ? "Loading..." : "Load More"}
+        </button>
+      )}
     </main>
   );
 }
