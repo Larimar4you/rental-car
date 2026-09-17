@@ -1,4 +1,7 @@
 .filters {
+  position: relative;
+  z-index: 20;
+
   display: flex;
   align-items: flex-start;
   gap: 16px;
@@ -9,6 +12,7 @@
 }
 
 .field {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -134,4 +138,69 @@
   line-height: 125%;
 
   cursor: pointer;
+}
+
+.brandDropdown,
+.priceDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+
+  width: 204px;
+  max-height: 272px;
+  overflow-y: auto;
+
+  margin: 0;
+  padding: 8px 0;
+
+  border-radius: 12px;
+  background-color: var(--white);
+
+  list-style: none;
+}
+
+.brandDropdown li {
+  list-style: none;
+}
+
+.clear:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.clear:focus-visible {
+  outline: 2px solid var(--light-blue);
+  outline-offset: 2px;
+}
+
+.brandOption {
+  display: block;
+  width: 100%;
+  padding: 4px 16px;
+
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  appearance: none;
+
+  background-color: transparent;
+  box-shadow: none;
+
+  color: var(--gray);
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.brandOption:hover {
+  color: var(--main);
+}
+
+.brandOption:focus-visible {
+  outline: 2px solid var(--light-blue);
+  outline-offset: -2px;
 }

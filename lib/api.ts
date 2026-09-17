@@ -1,10 +1,33 @@
 import type { CarsResponse } from "@/types/car";
-import type { FiltersResponse } from "@/types/filters";
+import type { CarsFilters, FiltersResponse } from "@/types/filters";
 
 const API_URL = "https://car-rental-api.goit.study";
 
-export async function getCars(page: number = 1): Promise<CarsResponse> {
-  const response = await fetch(`${API_URL}/cars?page=${page}`);
+export async function getCars(
+  page: number = 1,
+  filters: CarsFilters = {},
+): Promise<CarsResponse> {
+  const params = new URLSearchParams();
+
+  params.set("page", String(page));
+
+  if (filters.brand) {
+    params.set("brand", filters.brand);
+  }
+
+  if (filters.price !== undefined) {
+    params.set("price", String(filters.price));
+  }
+
+  if (filters.minMileage !== undefined) {
+    params.set("minMileage", String(filters.minMileage));
+  }
+
+  if (filters.maxMileage !== undefined) {
+    params.set("maxMileage", String(filters.maxMileage));
+  }
+
+  const response = await fetch(`${API_URL}/cars?${params.toString()}`);
 
   if (!response.ok) {
     throw new Error("Failed to fetch cars");
