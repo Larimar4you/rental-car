@@ -9,6 +9,7 @@ import { getCars } from "@/lib/api";
 import CarList from "@/components/CarList/CarList";
 import Filters from "@/components/Filters/Filters";
 import NotFound from "@/components/NotFound/NotFound";
+import Loader from "@/components/Loader/Loader";
 
 import styles from "./Catalog.module.css";
 
@@ -20,6 +21,7 @@ export default function Catalog() {
     data,
     isPending,
     isError,
+    isFetching,
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage,
@@ -49,7 +51,7 @@ export default function Catalog() {
         </div>
 
         {isPending ? (
-          <p>Loading cars...</p>
+          <Loader />
         ) : isError ? (
           <p>Failed to load cars.</p>
         ) : cars.length === 0 ? (
@@ -73,6 +75,7 @@ export default function Catalog() {
           </>
         )}
       </div>
+      {!isPending && isFetching && <Loader />}
     </main>
   );
 }
