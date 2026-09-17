@@ -33,19 +33,21 @@ export default function Catalog() {
   const cars = data.pages.flatMap((page) => page.cars);
 
   return (
-    <main>
-      <CarList cars={cars} />
+    <main className={styles.page}>
+      <div className={styles.container}>
+        <CarList cars={cars} />
 
-      {hasNextPage && (
-        <button
-          type="button"
-          className={styles.loadMore}
-          onClick={() => fetchNextPage()}
-          disabled={isFetchingNextPage}
-        >
-          {isFetchingNextPage ? "Loading..." : "Load More"}
-        </button>
-      )}
+        {hasNextPage && (
+          <button
+            type="button"
+            className={styles.loadMore}
+            onClick={() => fetchNextPage()}
+            disabled={isFetchingNextPage}
+          >
+            {isFetchingNextPage ? "Loading..." : "Load More"}
+          </button>
+        )}
+      </div>
     </main>
   );
 }
