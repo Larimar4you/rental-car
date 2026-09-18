@@ -1,0 +1,91 @@
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 0 24px;
+  font-family: var(--font-family);
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 133%;
+  color: var(--main);
+}
+
+.location {
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--gray);
+}
+
+.price {
+  margin-top: 16px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 133%;
+  color: var(--light-blue);
+}
+
+.description {
+  margin-top: 32px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 125%;
+  color: var(--main);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.groupTitle {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 120%;
+  color: var(--main);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 125%;
+  color: var(--main);
+}
+
+.check {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--gray);
+  border-radius: 50%;
+  font-size: 10px;
+  color: var(--gray);
+}

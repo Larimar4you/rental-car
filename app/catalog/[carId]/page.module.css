@@ -1,0 +1,24 @@
+.page {
+  padding: 84px 0 104px;
+  background-color: var(--white);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 640px 528px;
+  gap: 32px;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 640px;
+  height: 512px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.image {
+  object-fit: cover;
+}
