@@ -1,5 +1,6 @@
 import type { Car } from "@/types/car";
 import styles from "./CarDetails.module.css";
+import { LuMapPin, LuCircleCheck, LuCheck } from "react-icons/lu";
 
 interface CarDetailsProps {
   car: Car;
@@ -7,11 +8,26 @@ interface CarDetailsProps {
 
 export default function CarDetails({ car }: CarDetailsProps) {
   const specifications = [
-    `Year: ${car.year}`,
-    `Type: ${car.type}`,
-    `Fuel Consumption: ${car.fuelConsumption}`,
-    `Engine: ${car.engine}`,
-    `Mileage: ${car.mileage.toLocaleString("en-US")} km`,
+    {
+      label: `Year: ${car.year}`,
+      icon: "/icons/calendar.svg",
+    },
+    {
+      label: `Type: ${car.type}`,
+      icon: "/icons/car.svg",
+    },
+    {
+      label: `Fuel Consumption: ${car.fuelConsumption}`,
+      icon: "/icons/fuel.svg",
+    },
+    {
+      label: `Engine: ${car.engine}`,
+      icon: "/icons/engine.svg",
+    },
+    {
+      label: `Mileage: ${car.mileage.toLocaleString("en-US")} km`,
+      icon: "/icons/mileage.svg",
+    },
   ];
 
   return (
@@ -24,6 +40,7 @@ export default function CarDetails({ car }: CarDetailsProps) {
         </div>
 
         <p className={styles.location}>
+          <LuMapPin size={16} aria-hidden="true" />
           {car.location.city}, {car.location.country}
         </p>
 
@@ -32,49 +49,51 @@ export default function CarDetails({ car }: CarDetailsProps) {
         <p className={styles.description}>{car.description}</p>
       </div>
 
-      <div className={styles.group}>
-        <h2 className={styles.groupTitle}>Rental Conditions:</h2>
+      <div className={styles.carInfo}>
+        <div className={styles.group}>
+          <h2 className={styles.groupTitle}>Rental Conditions:</h2>
 
-        <ul className={styles.list}>
-          {car.rentalConditions.map((condition) => (
-            <li key={condition} className={styles.listItem}>
-              <span className={styles.check} aria-hidden="true">
-                ✓
-              </span>
-              {condition}
-            </li>
-          ))}
-        </ul>
-      </div>
+          <ul className={styles.list}>
+            {car.rentalConditions.map((condition) => (
+              <li key={condition} className={styles.listItem}>
+                <LuCircleCheck className={styles.check} aria-hidden="true" />
+                {condition}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      <div className={styles.group}>
-        <h2 className={styles.groupTitle}>Car Specifications:</h2>
+        <div className={styles.group}>
+          <h2 className={styles.groupTitle}>Car Specifications:</h2>
 
-        <ul className={styles.list}>
-          {specifications.map((specification) => (
-            <li key={specification} className={styles.listItem}>
-              <span className={styles.check} aria-hidden="true">
-                ✓
-              </span>
-              {specification}
-            </li>
-          ))}
-        </ul>
-      </div>
+          <ul className={styles.list}>
+            {specifications.map((specification) => (
+              <li key={specification.label} className={styles.listItem}>
+                <img
+                  src={specification.icon}
+                  alt=""
+                  width={16}
+                  height={16}
+                  className={styles.specIcon}
+                />
+                {specification.label}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      <div className={styles.group}>
-        <h2 className={styles.groupTitle}>Features</h2>
+        <div className={styles.group}>
+          <h2 className={styles.groupTitle}>Features</h2>
 
-        <ul className={styles.list}>
-          {car.features.map((feature) => (
-            <li key={feature} className={styles.listItem}>
-              <span className={styles.check} aria-hidden="true">
-                ✓
-              </span>
-              {feature}
-            </li>
-          ))}
-        </ul>
+          <ul className={styles.list}>
+            {car.features.map((feature) => (
+              <li key={feature} className={styles.listItem}>
+                <LuCircleCheck className={styles.check} aria-hidden="true" />
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

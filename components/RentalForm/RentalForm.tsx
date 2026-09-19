@@ -95,19 +95,37 @@ export default function RentalForm({ carId }: RentalFormProps) {
       </p>
 
       <form className={styles.form} onSubmit={handleSubmit} noValidate>
+        {/* Name */}
         <div className={styles.field}>
-          <input
-            className={`${styles.input} ${errors.name ? styles.invalid : ""}`}
-            type="text"
-            name="name"
-            placeholder="Name*"
-            aria-label="Name"
-            aria-invalid={Boolean(errors.name)}
-            aria-describedby={errors.name ? "name-error" : undefined}
-            autoComplete="name"
-            value={values.name}
-            onChange={(event) => updateField("name", event.target.value)}
-          />
+          <div className={styles.inputWrapper}>
+            {(values.name || errors.name) && (
+              <label htmlFor="booking-name" className={styles.floatingLabel}>
+                Name*
+              </label>
+            )}
+
+            <input
+              id="booking-name"
+              className={`${styles.input} ${
+                values.name || errors.name ? styles.withLabel : ""
+              } ${errors.name ? styles.invalid : ""}`}
+              type="text"
+              name="name"
+              placeholder={values.name || errors.name ? "" : "Name*"}
+              aria-label="Name"
+              aria-invalid={Boolean(errors.name)}
+              aria-describedby={errors.name ? "name-error" : undefined}
+              autoComplete="name"
+              value={values.name}
+              onChange={(event) => updateField("name", event.target.value)}
+            />
+
+            {errors.name && (
+              <span className={styles.errorIcon} aria-hidden="true">
+                !
+              </span>
+            )}
+          </div>
 
           {errors.name && (
             <p id="name-error" className={styles.error}>
@@ -116,19 +134,37 @@ export default function RentalForm({ carId }: RentalFormProps) {
           )}
         </div>
 
+        {/* Email */}
         <div className={styles.field}>
-          <input
-            className={`${styles.input} ${errors.email ? styles.invalid : ""}`}
-            type="email"
-            name="email"
-            placeholder="Email*"
-            aria-label="Email"
-            aria-invalid={Boolean(errors.email)}
-            aria-describedby={errors.email ? "email-error" : undefined}
-            autoComplete="email"
-            value={values.email}
-            onChange={(event) => updateField("email", event.target.value)}
-          />
+          <div className={styles.inputWrapper}>
+            {(values.email || errors.email) && (
+              <label htmlFor="booking-email" className={styles.floatingLabel}>
+                Email*
+              </label>
+            )}
+
+            <input
+              id="booking-email"
+              className={`${styles.input} ${
+                values.email || errors.email ? styles.withLabel : ""
+              } ${errors.email ? styles.invalid : ""}`}
+              type="email"
+              name="email"
+              placeholder={values.email || errors.email ? "" : "Email*"}
+              aria-label="Email"
+              aria-invalid={Boolean(errors.email)}
+              aria-describedby={errors.email ? "email-error" : undefined}
+              autoComplete="email"
+              value={values.email}
+              onChange={(event) => updateField("email", event.target.value)}
+            />
+
+            {errors.email && (
+              <span className={styles.errorIcon} aria-hidden="true">
+                !
+              </span>
+            )}
+          </div>
 
           {errors.email && (
             <p id="email-error" className={styles.error}>
@@ -137,19 +173,31 @@ export default function RentalForm({ carId }: RentalFormProps) {
           )}
         </div>
 
+        {/* Comment */}
         <div className={styles.field}>
-          <textarea
-            className={`${styles.textarea} ${
-              errors.comment ? styles.invalid : ""
-            }`}
-            name="comment"
-            placeholder="Comment"
-            aria-label="Comment"
-            aria-invalid={Boolean(errors.comment)}
-            aria-describedby={errors.comment ? "comment-error" : undefined}
-            value={values.comment}
-            onChange={(event) => updateField("comment", event.target.value)}
-          />
+          <div className={styles.inputWrapper}>
+            <label htmlFor="booking-comment" className={styles.textareaLabel}>
+              Comment
+            </label>
+
+            <textarea
+              id="booking-comment"
+              className={`${styles.textarea} ${
+                errors.comment ? styles.invalid : ""
+              }`}
+              name="comment"
+              aria-invalid={Boolean(errors.comment)}
+              aria-describedby={errors.comment ? "comment-error" : undefined}
+              value={values.comment}
+              onChange={(event) => updateField("comment", event.target.value)}
+            />
+
+            {errors.comment && (
+              <span className={styles.errorIcon} aria-hidden="true">
+                !
+              </span>
+            )}
+          </div>
 
           {errors.comment && (
             <p id="comment-error" className={styles.error}>
@@ -158,6 +206,7 @@ export default function RentalForm({ carId }: RentalFormProps) {
           )}
         </div>
 
+        {/* Submit */}
         <button className={styles.button} type="submit" disabled={isSubmitting}>
           {isSubmitting ? "Sending..." : "Send"}
         </button>

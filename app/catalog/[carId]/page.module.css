@@ -5,7 +5,7 @@
 
 .container {
   display: grid;
-  grid-template-columns: 640px 528px;
+  grid-template-columns: 640px minmax(0, 1fr);
   gap: 32px;
   width: 1200px;
   margin: 0 auto;
@@ -21,4 +21,10 @@
 
 .image {
   object-fit: cover;
+}
+
+.media {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }

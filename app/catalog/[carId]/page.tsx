@@ -1,9 +1,11 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getCarById } from "@/lib/api";
-import styles from "./page.module.css";
+
 import CarDetails from "@/components/CarDetails/CarDetails";
 import RentalForm from "@/components/RentalForm/RentalForm";
+
+import styles from "./page.module.css";
 
 interface CarDetailsPageProps {
   params: Promise<{ carId: string }>;
@@ -23,7 +25,7 @@ export default async function CarDetailsPage({ params }: CarDetailsPageProps) {
   return (
     <main className={styles.page}>
       <div className={styles.container}>
-        <div>
+        <div className={styles.media}>
           <div className={styles.imageWrapper}>
             <Image
               src={car.img}
@@ -33,6 +35,7 @@ export default async function CarDetailsPage({ params }: CarDetailsPageProps) {
               className={styles.image}
             />
           </div>
+
           <RentalForm carId={car.id} />
         </div>
 

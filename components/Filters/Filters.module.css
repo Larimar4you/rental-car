@@ -76,7 +76,6 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 125%;
-  outline-offset: 2px;
 }
 
 .from {
@@ -88,6 +87,17 @@
 .to {
   padding: 12px 16px;
   border-radius: 0 12px 12px 0;
+}
+
+.from:focus-visible,
+.to:focus-visible {
+  outline: 2px solid var(--light-blue);
+  outline-offset: -2px;
+}
+
+.from:focus:not(:focus-visible),
+.to:focus:not(:focus-visible) {
+  outline: none;
 }
 
 .from::placeholder,

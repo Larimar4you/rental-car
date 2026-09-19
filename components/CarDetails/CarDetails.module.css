@@ -1,9 +1,18 @@
 .details {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  padding: 0 24px;
+  gap: 68px;
+  width: 528px;
+  padding: 32px 24px;
+  border-radius: 16px;
+  background-color: var(--white);
   font-family: var(--font-family);
+}
+
+.carInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 .intro {
@@ -26,6 +35,9 @@
 }
 
 .location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
   margin-top: 8px;
   font-size: 16px;
   line-height: 125%;
@@ -54,9 +66,15 @@
   gap: 16px;
 }
 
+.group + .group {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--gray-light);
+}
+
 .groupTitle {
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 120%;
   color: var(--main);
 }
@@ -79,13 +97,13 @@
 
 .check {
   flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 16px;
   height: 16px;
-  border: 1px solid var(--gray);
-  border-radius: 50%;
-  font-size: 10px;
-  color: var(--gray);
+  color: var(--main);
+}
+
+.specIcon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
 }
