@@ -2,9 +2,7 @@
   position: relative;
   width: 100%;
   min-height: 700px;
-  height: calc(
-    100vh - 68px
-  ); /* не знаю як правильно до завдання чи просто оставить height: 700px*/
+  height: 700px;
   overflow: hidden;
 
   display: flex;

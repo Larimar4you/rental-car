@@ -163,7 +163,7 @@ export default function Filters({ onSearch }: FiltersProps) {
       </div>
 
       <div className={styles.field}>
-        <label className={styles.label}>Car mileage / km</label>
+        <span className={styles.label}>Car mileage / km</span>
 
         <div className={styles.mileage}>
           <input
